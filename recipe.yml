@@ -35,7 +35,7 @@ rpms:
   # - python3-pip
   # - libadwaita # libadwaita comes with silverblue, but not with other flavors
   # add your own below
-  code
+  - code
   # podman-compose
 
 # These Flatpaks (from flathub) will be available for install on boot
