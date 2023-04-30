@@ -18,7 +18,7 @@ distrobox-debian:
 distrobox-opensuse:
   echo 'Creating openSUSE distrobox ...'
   distrobox create --image quay.io/toolbx-images/opensuse-toolbox:tumbleweed -n opensuse -Y
- 
+
 distrobox-ubuntu:
   echo 'Creating Ubuntu distrobox ...'
   distrobox create --image quay.io/toolbx-images/ubuntu-toolbox:22.04 -n ubuntu -Y
@@ -53,9 +53,9 @@ setup-gaming:
   com.valvesoftware.Steam \\
   com.valvesoftware.Steam.Utility.gamescope \\
   net.davidotek.pupgui2
-  flatpak override com.usebottles.bottles --user --filesystem=xdg-data/applications 
-  flatpak override --user --env=MANGOHUD=1 com.valvesoftware.Steam 
-  flatpak override --user --env=MANGOHUD=1 com.heroicgameslauncher.hgl 
+  flatpak override com.usebottles.bottles --user --filesystem=xdg-data/applications
+  flatpak override --user --env=MANGOHUD=1 com.valvesoftware.Steam
+  flatpak override --user --env=MANGOHUD=1 com.heroicgameslauncher.hgl
 
 nix-me-up:
   echo 'Setting phasers to kill. Installing nix.'
@@ -71,3 +71,8 @@ update:
 
   echo "Updating Distroboxes..."
   distrobox upgrade -a
+
+containerhost:
+  # Setup Podman to emulator Docker
+  systemctl --user enable --now podman.socket
+  sudo ln -s /run/user/1000/podman/podman.sock /var/run/docker.sock

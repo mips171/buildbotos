@@ -35,7 +35,6 @@ rpms:
   # - python3-pip
   # - libadwaita # libadwaita comes with silverblue, but not with other flavors
   # add your own below
-  docker
   code
   # podman-compose
 
